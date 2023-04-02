@@ -2,7 +2,7 @@
 FunkyHW is a program to write Hello & World to stdout from two separate threads alternatively.
 
 ### Usage of channels and threads
-To achieve this, I have used std::mpsc::channel and std::thread.
+To achieve this, I have used `std::mpsc::channel` and `std::thread`.
 
 #### How
 Here to make this alternating behaviour between threads, I have initialized two channel pairs:
@@ -42,8 +42,8 @@ After defining threads, we will have to initiate the X thread calling by sending
 <br />
 ```
 let tx = sync::mpsc::Sender::clone(tx1);
-
 tx.send(1).unwrap();
-<br />
 ```
+<br />
 Hence making threads act alternatively and print the required message of "Hello" from `thread_1` and "World" from `thread_2` alternatively.
+
