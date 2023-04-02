@@ -39,10 +39,11 @@ Here we used the sender and receiver channel pair in separate threads, so that o
 - The Sender channel is asynchronous, so all send() calls will be non-blocking.
 <br />
 After defining threads, we will have to initiate the X thread calling by sending `1` to the `rx1` so the `if` condition in `thread_1` will satisfy which will then send `2` to `rx2` upon which the `if` condition in `thread_2` will be satisfied and then the `thread_2` will send `1` to `thread_1` to satisfy the if condition, and so on.
+<br />
 ```
 let tx = sync::mpsc::Sender::clone(tx1);
 
 tx.send(1).unwrap();
-```
 <br />
+```
 Hence making threads act alternatively and print the required message of "Hello" from `thread_1` and "World" from `thread_2` alternatively.
